@@ -1,0 +1,13 @@
+<div>
+  <nav class="navbar navbar-light bg-dark">
+    <a style="color: white" class="navbar-brand" href="/login">Sampath Hardware</a>
+    <div>
+      <div *ngIf="show">
+        <a style="color: white" class="navbar-brand" href="/login">Login</a>
+      </div>
+      <div *ngIf="!show">
+        <a style="color: white" class="navbar-brand" href="#" (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </nav>
+</div>

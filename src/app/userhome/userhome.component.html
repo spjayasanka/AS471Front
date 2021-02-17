@@ -1,0 +1,84 @@
+<!--<div *ngFor="let product of products">-->
+<!--  name: {{product.name}}-->
+<!--</div>-->
+<app-nav-bar></app-nav-bar>
+<div class="row">
+  <div class="col-1 imgBack"></div>
+  <div class="col">
+    <h1 style="color: blue; text-align: center">Welcome to Sampath Hardware...!</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Select Category</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Construction</a>
+          <a class="nav-item nav-link" href="#">Tools</a>
+          <a class="nav-item nav-link" href="#">Others</a>
+        </div>
+      </div>
+    </nav>
+
+    <br><br>
+
+    <div *ngIf="!show">
+
+      <div class="texts">
+        <div>
+          <h4>You are not login to the system</h4>
+          <h5>Please <a href="/login">login</a> to continue.</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div *ngFor="let product of products">
+        <div style="padding: 5px">
+          <div class="card" style="background-color: aliceblue; padding: 5px">
+            <img src="https://i.pinimg.com/originals/49/0f/36/490f368ebce1f842f5d88bc0c1059a94.jpg"
+                 alt="image" width="150px">
+            name: {{product.name}}<br>
+            price: {{product.price}}<br>
+            <button class="btn btn-primary" (click)="addtocart(product)"> add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-3 back imgBack">
+    <div *ngIf="show">
+      <div>
+        <div style="background-color: white; padding: 10px">
+          <button class="btn btn-success" (click)="viewCart()">view Cart</button>
+          <!--      <div *ngFor="let cart of carts">-->
+          <!--        {{cart.productName}}-->
+          <!--        {{cart.productPrice}}-->
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">name</th>
+              <th scope="col">price</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let cart of carts">
+            <tr>
+              <td>{{cart.productName}}</td>
+              <td>{{cart.productPrice}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <button class="btn btn-primary" (click)="checkout()">Confirm Order</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+  </div>
+<!--</div>-->
