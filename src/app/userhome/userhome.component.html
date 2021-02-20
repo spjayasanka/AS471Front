@@ -3,7 +3,7 @@
 <!--</div>-->
 <app-nav-bar></app-nav-bar>
 <div class="row">
-  <div class="col-1 imgBack"></div>
+  <div class="col-2 imgBack"></div>
   <div class="col">
     <h1 style="color: blue; text-align: center">Welcome to Sampath Hardware...!</h1>
 
@@ -17,6 +17,9 @@
           <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Construction</a>
           <a class="nav-item nav-link" href="#">Tools</a>
+          <a class="nav-item nav-link" href="#">Paint</a>
+          <a class="nav-item nav-link" href="#">Electrical</a>
+          <a class="nav-item nav-link" href="#">Electronics</a>
           <a class="nav-item nav-link" href="#">Others</a>
         </div>
       </div>
@@ -30,6 +33,8 @@
         <div>
           <h4>You are not login to the system</h4>
           <h5>Please <a href="/login">login</a> to continue.</h5>
+          <br>
+          <h5>You can register as a customer by clicking <a href="/register"> here</a></h5>
         </div>
       </div>
     </div>
@@ -39,46 +44,22 @@
         <div style="padding: 5px">
           <div class="card" style="background-color: aliceblue; padding: 5px">
             <img src="https://i.pinimg.com/originals/49/0f/36/490f368ebce1f842f5d88bc0c1059a94.jpg"
-                 alt="image" width="150px">
-            name: {{product.name}}<br>
-            price: {{product.price}}<br>
-            <button class="btn btn-primary" (click)="addtocart(product)"> add to cart</button>
+                 alt="image" width="180px">
+            <b>{{product.name}}<br></b>
+            Rs: {{product.price}}<br>
+            <br><button class="btn btn-primary" (click)="addtocart(product)"> add to cart</button>
           </div>
         </div>
       </div>
     </div>
 
   </div>
-  <div class="col-3 back imgBack">
-    <div *ngIf="show">
-      <div>
-        <div style="background-color: white; padding: 10px">
-          <button class="btn btn-success" (click)="viewCart()">view Cart</button>
-          <!--      <div *ngFor="let cart of carts">-->
-          <!--        {{cart.productName}}-->
-          <!--        {{cart.productPrice}}-->
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th scope="col">name</th>
-              <th scope="col">price</th>
-            </tr>
-            </thead>
-            <tbody *ngFor="let cart of carts">
-            <tr>
-              <td>{{cart.productName}}</td>
-              <td>{{cart.productPrice}}</td>
-            </tr>
-            </tbody>
-          </table>
-
-          <button class="btn btn-primary" (click)="checkout()">Confirm Order</button>
-        </div>
-      </div>
-    </div>
+  <div class="col-2 back imgBack">
+      <button class="btn btn-primary" (click)="viewCart()">View Cart</button>
     </div>
 
 
 
   </div>
+<!--<app-footer></app-footer>-->
 <!--</div>-->

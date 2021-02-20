@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AuthenticationService} from '../service/authentication.service';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,7 +10,8 @@ import {AuthenticationService} from '../service/authentication.service';
 export class NavBarComponent implements OnInit {
   show: boolean;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService,
+              @Inject(DOCUMENT) private Doc: Document) { }
 
   ngOnInit(): void {
     if (this.authService.isUserLoggedIn()) {
@@ -19,8 +21,9 @@ export class NavBarComponent implements OnInit {
     }
   }
 
-  logout(){
+  logout() {
     this.authService.logOut();
+    this.Doc.defaultView.location.reload();
   }
 
 }

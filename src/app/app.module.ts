@@ -11,6 +11,11 @@ import { RegisterComponent } from './register/register.component';
 import {BasicAuthHttpInterceptorService} from './service/basic-auth-http-interceptor.service';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CartComponent } from './cart/cart.component';
+import { FooterComponent } from './footer/footer.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { ConfirmComponent } from './confirm/confirm.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     UserhomeComponent,
     RegisterComponent,
     AdminDashComponent,
-    NavBarComponent
+    NavBarComponent,
+    CartComponent,
+    FooterComponent,
+    OrderDetailsComponent,
+    ConfirmComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../dto/user';
 import {Observable} from 'rxjs';
 import {Cart} from '../dto/cart';
 import {Product} from '../dto/product';
@@ -21,6 +20,8 @@ export class CartService {
     return this.http.get<Cart[]>('http://localhost:8080/viewCart');
   }
 
-  delete
+  removeItem(cart: Cart): Observable<boolean> {
+    return this.http.post<boolean>('http://localhost:8080/removeItem', cart);
+  }
 
 }

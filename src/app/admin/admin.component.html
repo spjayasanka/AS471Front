@@ -1,0 +1,109 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+    <div style="color: brown">
+      <h2> ADMIN DASH BOARD <br></h2>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col">
+    <h3>Select what you need to see</h3>
+    <button class="btn btn-primary" (click)="myProducts()">My Products</button>   |
+    <button class="btn btn-success" (click)="addproduct()">Add Products</button> |
+    <button class="btn btn-primary" (click)="ordersview()">Orders</button> |
+    <button class="btn btn-success" (click)="store()">Stores</button> |
+    <button class="btn btn-success" (click)="settings()">Settings</button>
+
+  </div>
+  <div class="col-4"></div>
+</div>
+
+
+<div *ngIf="myproducts">
+<div class="row">
+  <div class="col-2 backs"></div>
+  <div class="col">
+      <div class="wrapper">
+        <div *ngFor="let product of products">
+          <div style="padding: 5px">
+            <div class="card" style="background-color: aliceblue; padding: 5px">
+              <img src="https://i.pinimg.com/originals/49/0f/36/490f368ebce1f842f5d88bc0c1059a94.jpg"
+                   alt="image" width="180px">
+              <b>{{product.name}}<br></b>
+              Rs: {{product.price}}<br>
+              <br><button class="btn btn-primary" (click)="viewDetails(product)">view</button>
+              <button class="btn btn-danger" (click)="deleteProduct(product)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="col-2 backs"></div>
+</div>
+</div>
+
+<div *ngIf="add">
+<div class="row">
+  <div class="col-3 backs"></div>
+  <div class="col">
+
+      <form>
+        <div class="form-group">
+          <br><label for="productName"><b>Product Name</b></label>
+          <input type="text" name="name" [(ngModel)]="selectedProduct.name" id="productName" class="form-control" placeholder="Enter product Name">
+
+          <div class="row">
+            <div class="col">
+              <br><label for="price"><b>Price</b></label>
+              <input type="text" name="price" [(ngModel)]="selectedProduct.price" id="price" class="form-control" placeholder="Enter the price">
+            </div>
+            <div class="col">
+              <br><label for="qty"><b>Qty. in stores</b></label>
+              <input type="text" name="inStock" [(ngModel)]="selectedProduct.inStock" id="qty" class="form-control" placeholder="Enter quantity">
+            </div>
+          </div>
+
+          <br><label for="desc"><b>Product Description</b></label>
+          <textarea rows="5" name="description" [(ngModel)]="selectedProduct.description" id="desc" class="form-control" placeholder="Enter product description"></textarea>
+
+          <br><button class="btn btn-promary" (click)="saveProduct()">Save Product</button>
+
+        </div>
+      </form>
+    </div>
+  <div class="col-3 backs"></div>
+</div>
+</div>
+
+<div *ngIf="orders">
+  <div class="row">
+    <div class="col-3 backs"></div>
+    <div class="col">
+      <div style="text-align: center">
+        <br><br><h3>This the page that shows all orders <br></h3>
+        <h6 style="color: red">Still developing</h6>
+      </div>
+    </div>
+    <div class="col-3 backs"></div>
+  </div>
+</div>
+
+<div *ngIf="stores">
+  <div class="row">
+    <div class="col-3 backs"></div>
+    <div class="col">
+      <div style="text-align: center">
+        <br><br><h3>This the page that shows all stores details <br></h3>
+        <h6 style="color: red">Still developing</h6>
+      </div>
+    </div>
+    <div class="col-3 backs"></div>
+  </div>
+</div>
+

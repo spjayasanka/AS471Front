@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-3 back"></div>
+  <div class="col">
+    <div>
+      <div>
+        <div style="background-color: white; padding: 10px">
+          <h4><b>Items, you've added to the cart</b></h4>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">name</th>
+              <th scope="col">price</th>
+              <th scope="col">remove</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let cart of carts">
+            <tr>
+              <td>{{cart.productName}}</td>
+              <td>{{cart.productPrice}}</td>
+              <td><button class="btn-danger" (click)="removeItem(cart)">X</button></td>
+            </tr>
+            </tbody>
+          </table>
+
+          <button class="btn btn-primary" (click)="checkout()">Confirm Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3 back"></div>
+</div>
